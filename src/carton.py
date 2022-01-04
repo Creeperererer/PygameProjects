@@ -1,29 +1,58 @@
-# 参数准备
-bird_x = 0
-bird_y = 0
-bird_speed_x = 5
-bird_speed_y = 5
-
-# 导入
+# 引入：
 import pygame
+import random
 from pygame.color import THECOLORS
 
-# 初始化
-pygame.init()
 
-# 创建一个窗口
-screen = pygame.display.set_mode([800, 600])
+# 创建个类：
+class AngryBirdClass(pygame.sprite.Sprite):
+    # 初始化对象
+    def __init__(self, image_file, location, speed):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(image_file)
+        # 得到定义图像边界的矩形
+        self.rect = self.image.get_rect()
+        # 小鸟的初始位置
+        self.rect.left, self.rect.top = location
+        # 创建速度属性
+        self.speed = speed
 
-# 用白色填充屏幕
+    # 增加运动方法
+    def move(self):
+        self.rect = self.rect.move(self.speed)
+        # 检测是否达到窗口边界
+        if self.rect.left < 0 or self.rect.right > width:
+            self.speed[0] = -self.speed[0]
+        if self.rect.top < 0 or self.rect.bottom > height:
+            self.speed[1] = -self.speed[1]
+
+
+# 设置窗口大小、颜色、载入图片
+size = width, height = 800, 600
+screen = pygame.display.set_mode(size)
 screen.fill(THECOLORS['white'])
-
-# 加载愤怒小鸟的图片，更新图像
-pngFileName = 'redBird.png'
-birdRect = pygame.image.load(pngFileName)
-screen.blit(birdRect, [bird_x, bird_y])
-
-# 翻转
-pygame.display.flip()
+img_file = 'redBird.png'
+img_file2 = 'blueBird.png'
+# 创建一个小鸟列表
+birds = []
+for row in range(0, 2):
+    for column in range(0, 2):
+        # 每次循环都有一个不同的位置
+        location = [column * 180 + 10, row * 180 + 10]
+        # 速度随机
+        speed = [random.choice([-2, 2]), random.choice([-2, 2])]
+        bird = AngryBirdClass(img_file, location, speed)
+        # 将各个小鸟添加到列表中
+        birds.append(bird)
+for row in range(0, 2):
+    for column in range(0, 2):
+        # 每次循环都有一个不同的位置
+        location = [column * 230 + 50, row * 220 + 10]
+        # 速度随机
+        speed = [random.choice([-2, 2]), random.choice([-2, 2])]
+        bird = AngryBirdClass(img_file2, location, speed)
+        # 将各个小鸟添加到列表中
+        birds.append(bird)
 
 # 主循环
 mRunning = True
@@ -33,16 +62,9 @@ while mRunning:
             mRunning = False
     # 时间延迟
     pygame.time.delay(20)
-    # 覆盖痕迹
-    pygame.draw.rect(screen, THECOLORS['white'], [bird_x, bird_y, 100, 100], 0)
-    # 小鸟的位置
-    bird_x = bird_x + bird_speed_x
-    bird_y = bird_y + bird_speed_y
-    # 小鸟碰壁后飞回
-    if bird_x > 720 or bird_x < 0:
-        bird_speed_x = -bird_speed_x
-    if bird_y > 520 or bird_y < 0:
-        bird_speed_y = -bird_speed_y
-    screen.blit(birdRect, [bird_x, bird_y])
+    screen.fill(THECOLORS['white'])
+    for bird in birds:
+        bird.move()
+        screen.blit(bird.image, bird.rect)
     pygame.display.flip()
 pygame.quit()
