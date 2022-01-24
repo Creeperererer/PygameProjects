@@ -14,7 +14,7 @@
    <string>WizardButton</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -63,7 +63,7 @@
               </size>
              </property>
              <property name="currentText">
-              <string>Q</string>
+              <string>A</string>
              </property>
              <item>
               <property name="text">
@@ -256,7 +256,7 @@
               </sizepolicy>
              </property>
              <property name="currentText">
-              <string>W</string>
+              <string>A</string>
              </property>
              <item>
               <property name="text">
@@ -449,7 +449,7 @@
               </sizepolicy>
              </property>
              <property name="currentText">
-              <string>E</string>
+              <string>A</string>
              </property>
              <item>
               <property name="text">
@@ -642,7 +642,7 @@
               </sizepolicy>
              </property>
              <property name="currentText">
-              <string>R</string>
+              <string>A</string>
              </property>
              <item>
               <property name="text">
@@ -843,7 +843,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit">
+            <widget class="QLineEdit" name="lineEdit_a1">
              <property name="enabled">
               <bool>true</bool>
              </property>
@@ -853,21 +853,21 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_3">
+            <widget class="QLineEdit" name="lineEdit_a2">
              <property name="text">
               <string>100</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_2">
+            <widget class="QLineEdit" name="lineEdit_a3">
              <property name="text">
               <string>100</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_4">
+            <widget class="QLineEdit" name="lineEdit_a4">
              <property name="text">
               <string>100</string>
              </property>
@@ -924,28 +924,28 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_8">
+            <widget class="QLineEdit" name="lineEdit_b1">
              <property name="text">
               <string>1</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_6">
+            <widget class="QLineEdit" name="lineEdit_b2">
              <property name="text">
               <string>2</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_7">
+            <widget class="QLineEdit" name="lineEdit_b3">
              <property name="text">
               <string>3</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_5">
+            <widget class="QLineEdit" name="lineEdit_b4">
              <property name="text">
               <string>4</string>
              </property>
